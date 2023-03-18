@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { CreateDoctorprofileDto } from 'src/dto/create-doctorprofile.dto';
 import { UpdateDoctorprofileDto } from 'src/dto/update-doctorprofile.dto';
@@ -10,14 +10,19 @@ export class DoctorprofileService {
   constructor(
     @InjectModel('Doctorprofile')
     private doctorprofileModel: Model<IDoctorprofile>,
-  ) {}
+  ) { }
 
-  async createDoctorProfile(
-    createDoctorprofileDto: CreateDoctorprofileDto,
-  ): Promise<IDoctorprofile> {
+  async createDoctorprofile(createDoctorprofileDto: CreateDoctorprofileDto,): Promise<IDoctorprofile> {
     const newStudent = await new this.doctorprofileModel(
-      createDoctorprofileDto,
-    );
+      createDoctorprofileDto,);
     return newStudent.save();
+  }
+
+  async updateDoctorprofile(doctorprofileID: string, updateDoctorprofileDto : UpdateDoctorprofileDto ): Promise<IDoctorprofile> {
+    const existingDoctorprofile = await this.doctorprofileModel.findByIdAndUpdate(doctorprofileID,updateDoctorprofileDto,{new: true});
+    if (!existingDoctorprofile) {
+      throw new NotFoundException(`DoctorProfile #${doctorprofileID} not found`);
+    }
+    return existingDoctorprofile;
   }
 }

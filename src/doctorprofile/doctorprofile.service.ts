@@ -10,19 +10,41 @@ export class DoctorprofileService {
   constructor(
     @InjectModel('Doctorprofile')
     private doctorprofileModel: Model<IDoctorprofile>,
-  ) { }
+  ) {}
 
-  async createDoctorprofile(createDoctorprofileDto: CreateDoctorprofileDto,): Promise<IDoctorprofile> {
+  async createDoctorprofile(
+    createDoctorprofileDto: CreateDoctorprofileDto,
+  ): Promise<IDoctorprofile> {
     const newStudent = await new this.doctorprofileModel(
-      createDoctorprofileDto,);
+      createDoctorprofileDto,
+    );
     return newStudent.save();
   }
 
-  async updateDoctorprofile(doctorprofileID: string, updateDoctorprofileDto : UpdateDoctorprofileDto ): Promise<IDoctorprofile> {
-    const existingDoctorprofile = await this.doctorprofileModel.findByIdAndUpdate(doctorprofileID,updateDoctorprofileDto,{new: true});
+  async updateDoctorprofile(
+    doctorprofileID: string,
+    updateDoctorprofileDto: UpdateDoctorprofileDto,
+  ): Promise<IDoctorprofile> {
+    const existingDoctorprofile =
+      await this.doctorprofileModel.findByIdAndUpdate(
+        doctorprofileID,
+        updateDoctorprofileDto,
+        { new: true },
+      );
     if (!existingDoctorprofile) {
-      throw new NotFoundException(`DoctorProfile #${doctorprofileID} not found`);
+      throw new NotFoundException(
+        `DoctorProfile #${doctorprofileID} not found`,
+      );
     }
     return existingDoctorprofile;
+  }
+
+  async getAllDoctorprofile(): Promise<IDoctorprofile[]> {
+    const doctorprofileData = await this.doctorprofileModel.find();
+
+    if (!doctorprofileData || doctorprofileData.length == 0) {
+      throw new NotFoundException('Doctorprofile data not found!');
+    }
+    return doctorprofileData;
   }
 }

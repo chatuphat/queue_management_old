@@ -63,4 +63,18 @@ export class DoctorprofileController {
       return response.status(err.status).json(err.response);
     }
   }
+
+  @Get()
+  async getDoctorprofiles(@Res() response) {
+    try {
+      const doctorprofileData =
+        await this.doctorprofileService.getAllDoctorprofile();
+      return response.status(HttpStatus.OK).json({
+        message: 'All doctorprofile data found successfully',
+        doctorprofileData,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
 }

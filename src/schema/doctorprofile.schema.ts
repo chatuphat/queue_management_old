@@ -13,6 +13,9 @@ export class Doctorprofile {
 
   @Prop()
   lastNameEN: string;
+
+  @Prop()
+  codeDoctor: string;
 }
 
 export const DoctorprofileSchema = SchemaFactory.createForClass(Doctorprofile);

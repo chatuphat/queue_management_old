@@ -47,4 +47,25 @@ export class DoctorprofileService {
     }
     return doctorprofileData;
   }
+  async getDoctorprofile(doctorprofileID: string): Promise<IDoctorprofile> {
+    const existingDoctorprofile = await this.doctorprofileModel
+      .findById(doctorprofileID)
+      .exec();
+    if (!existingDoctorprofile) {
+      throw new NotFoundException(
+        `DoctorProfile #${doctorprofileID} not found`,
+      );
+    }
+    return existingDoctorprofile;
+  }
+  async deleteDoctorprofile(doctorprofileID: string): Promise<IDoctorprofile> {
+    const delectdDoctorprofile =
+      await this.doctorprofileModel.findByIdAndDelete(doctorprofileID);
+    if (!delectdDoctorprofile) {
+      throw new NotFoundException(
+        `DoctorProfile #${doctorprofileID} not found`,
+      );
+    }
+    return delectdDoctorprofile;
+  }
 }

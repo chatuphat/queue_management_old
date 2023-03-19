@@ -77,4 +77,37 @@ export class DoctorprofileController {
       return response.status(err.status).json(err.response);
     }
   }
+
+  @Get('/:id')
+  async getDoctorprofile(
+    @Res() response,
+    @Param('id') doctorprofileID: string,
+  ) {
+    try {
+      const existingDoctorprofile =
+        await this.doctorprofileService.getDoctorprofile(doctorprofileID);
+      return response.status(HttpStatus.OK).json({
+        message: 'doctorprofile found successfully',
+        existingDoctorprofile,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
+  @Delete('/:id')
+  async deleteDoctorprofile(
+    @Res() response,
+    @Param('id') doctorprofileID: string,
+  ) {
+    try {
+      const deletedDoctorprofile =
+        await this.doctorprofileService.deleteDoctorprofile(doctorprofileID);
+      return response.status(HttpStatus.OK).json({
+        message: 'doctorprofile deleted successfully',
+        deletedDoctorprofile,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
 }

@@ -26,3 +26,6 @@ docker-compose up -d
 
 ----------------------------------------
 create
+
+--------------------------------------------
+https://medium.com/globant/crud-application-using-nestjs-and-mongodb-99a0756adb76

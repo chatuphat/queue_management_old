@@ -63,11 +63,11 @@ export class DoctorslotController {
   }
 
   @Get()
-  async getDoctorslot(@Res() response) {
+  async getDoctorslots(@Res() response) {
     try {
       const doctorslotDate = await this.doctorslotService.getAllDoctorslots();
       return response.status(HttpStatus.OK).json({
-        message: 'All students data found successfully',
+        message: 'All Doctorslot data found successfully',
         doctorslotDate,
       });
     } catch (err) {
@@ -76,7 +76,7 @@ export class DoctorslotController {
   }
 
   @Get('/:id')
-  async getDocotrslot(@Res() response, @Param('id') doctorslotID: string) {
+  async getDoctorslot(@Res() response, @Param('id') doctorslotID: string) {
     try {
       const existingDoctorslot = await this.doctorslotService.getDoctorslot(
         doctorslotID,
@@ -87,6 +87,20 @@ export class DoctorslotController {
       });
     } catch (err) {
       return response.status(err.status).json(err.response);
+    }
+  }
+
+  @Delete('/:id')
+  async deleteDoctorslot(@Res() response,@Param('id') doctorslotID:string){
+    try {
+      const deletedDoctorslot = await this.doctorslotService.delectDoctorslot(doctorslotID);
+      return response.status(HttpStatus.OK).json({
+        message: 'Doctorslot deleted successfully',
+        deletedDoctorslot,
+      });
+      
+    }catch (err){
+      return response.status(err.status).json(err.response)
     }
   }
 }

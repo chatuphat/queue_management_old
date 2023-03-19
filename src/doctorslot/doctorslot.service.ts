@@ -51,4 +51,12 @@ export class DoctorslotService {
     return existingDoctorslot;
   }
 
+  async delectDoctorslot(doctorslotID:string): Promise<IDoctorslot> {
+    const delectDoctorslot = await this.doctorslotModel.findByIdAndDelete(doctorslotID);
+    if (!delectDoctorslot){
+      throw new NotFoundException(`Doctorslot #${doctorslotID} not found`);
+    }
+    return delectDoctorslot
+  }
+
 }

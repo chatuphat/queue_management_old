@@ -61,4 +61,32 @@ export class DoctorslotController {
       return response.status(err.status).json(err.status);
     }
   }
+
+  @Get()
+  async getDoctorslot(@Res() response) {
+    try {
+      const doctorslotDate = await this.doctorslotService.getAllDoctorslots();
+      return response.status(HttpStatus.OK).json({
+        message: 'All students data found successfully',
+        doctorslotDate,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
+
+  @Get('/:id')
+  async getDocotrslot(@Res() response, @Param('id') doctorslotID: string) {
+    try {
+      const existingDoctorslot = await this.doctorslotService.getDoctorslot(
+        doctorslotID,
+      );
+      return response.status(HttpStatus.OK).json({
+        message: 'Doctorslot found successfully',
+        existingDoctorslot,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
 }

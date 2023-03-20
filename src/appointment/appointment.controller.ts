@@ -86,4 +86,17 @@ export class AppointmentController {
     }
   }
 
+  @Delete('/:id')
+  async deleteAppointment(@Res()response,@Param('id') appointmentID:string) {
+    try {
+      const deletedAppointment = await this.appointmentService.deleteAppointment(appointmentID);
+      return response.status(HttpStatus.OK).json({
+        message: 'Student deleted successfully',
+                deletedAppointment,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response)
+    }
+  }
+
 }

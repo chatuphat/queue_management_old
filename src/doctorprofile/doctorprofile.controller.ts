@@ -9,6 +9,7 @@ import {
   Put,
   Res,
   Version,
+  Query,
 } from '@nestjs/common';
 import { response } from 'express';
 import { CreateDoctorprofileDto } from 'src/dto/create-doctorprofile.dto';
@@ -65,12 +66,13 @@ export class DoctorprofileController {
       return response.status(err.status).json(err.response);
     }
   }
+
   @Version('1')
   @Get()
-  async getDoctorprofiles(@Res() response) {
+  async getDoctorprofiles(@Res() response, @Query() doctorprofileQuery) {
     try {
       const doctorprofileData =
-        await this.doctorprofileService.getAllDoctorprofile();
+        await this.doctorprofileService.getAllDoctorprofile(doctorprofileQuery);
       return response.status(HttpStatus.OK).json({
         message: 'All doctorprofile data found successfully',
         doctorprofileData,

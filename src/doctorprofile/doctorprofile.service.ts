@@ -39,8 +39,8 @@ export class DoctorprofileService {
     return existingDoctorprofile;
   }
 
-  async getAllDoctorprofile(): Promise<IDoctorprofile[]> {
-    const doctorprofileData = await this.doctorprofileModel.find();
+  async getAllDoctorprofile(doctorprofileQuery): Promise<IDoctorprofile[]> {
+    const doctorprofileData = await this.doctorprofileModel.find(doctorprofileQuery);
 
     if (!doctorprofileData || doctorprofileData.length == 0) {
       throw new NotFoundException('Doctorprofile data not found!');
@@ -68,4 +68,6 @@ export class DoctorprofileService {
     }
     return delectdDoctorprofile;
   }
+
+
 }

@@ -80,4 +80,17 @@ export class QueueController {
       return response.status(err.status).json(err.response);
     }
   }
+
+  @Delete('/:id')
+  async deleteStudent(@Res() response, @Param('id') queueID: string) {
+    try {
+      const deletedQueue = await this.queueService.deleteQueue(queueID);
+      return response.status(HttpStatus.OK).json({
+        message: 'Queue deleted successfully',
+        deletedQueue,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
 }

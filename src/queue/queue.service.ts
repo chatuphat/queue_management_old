@@ -40,8 +40,16 @@ export class QueueService {
   async getQueue(queueID: string): Promise<IQueue> {
     const existingQueue = await this.queueModel.findById(queueID).exec();
     if (!existingQueue) {
-      throw new NotFoundException(`Student #${queueID} not found`);
+      throw new NotFoundException(`Queue #${queueID} not found`);
     }
     return existingQueue;
+  }
+
+  async deleteQueue(queueID:string): Promise<IQueue>{
+    const deletedQueue = await this.queueModel.findByIdAndDelete(queueID);
+    if(!deletedQueue){
+      throw new NotFoundException(`Queue #${queueID} not found`);
+    }
+    return deletedQueue;
   }
 }

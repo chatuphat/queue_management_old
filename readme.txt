@@ -19,6 +19,8 @@ git branch
 git push -u origin main
 git push -u origin developer
 
+git reset HEAD --hard
+
 ---------------------------
 
 docker-compose up -d

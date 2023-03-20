@@ -8,6 +8,7 @@ import {
   Post,
   Put,
   Res,
+  Version,
 } from '@nestjs/common';
 import { CreateQueueDto } from 'src/dto/create-queue.dto';
 import { UpdateQueueDto } from 'src/dto/update-queue.dto';
@@ -18,6 +19,7 @@ import { response } from 'express';
 export class QueueController {
   constructor(private readonly queueService: QueueService) {}
 
+  @Version('1')
   @Post()
   async createQueue(@Res() response, @Body() createQueueDto: CreateQueueDto) {
     try {
@@ -35,6 +37,7 @@ export class QueueController {
     }
   }
 
+  @Version('1')
   @Put('/:id')
   async updateQueue(
     @Res() response,
@@ -55,6 +58,7 @@ export class QueueController {
     }
   }
 
+  @Version('1')
   @Get()
   async getQueues(@Res() response) {
     try {
@@ -68,6 +72,7 @@ export class QueueController {
     }
   }
 
+  @Version('1')
   @Get('/:id')
   async getQueue(@Res() response, @Param('id') queueID: string) {
     try {
@@ -81,6 +86,7 @@ export class QueueController {
     }
   }
 
+  @Version('1')
   @Delete('/:id')
   async deleteStudent(@Res() response, @Param('id') queueID: string) {
     try {

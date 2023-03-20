@@ -8,6 +8,7 @@ import {
   Post,
   Put,
   Res,
+  Version,
 } from '@nestjs/common';
 import { CreateDoctorslotDto } from 'src/dto/create-doctorslot.dto';
 import { UpdateDoctorslotDto } from 'src/dto/update-doctorslot.dto';
@@ -19,6 +20,7 @@ import { response } from 'express';
 export class DoctorslotController {
   constructor(private readonly doctorslotService: DoctorslotService) {}
 
+  @Version('1')
   @Post()
   async createDoctorslot(
     @Res() response,
@@ -42,6 +44,7 @@ export class DoctorslotController {
     }
   }
 
+  @Version('1')
   @Put('/:id')
   async updateDoctorslot(
     @Res() response,
@@ -62,6 +65,7 @@ export class DoctorslotController {
     }
   }
 
+  @Version('1')
   @Get()
   async getDoctorslots(@Res() response) {
     try {
@@ -75,6 +79,7 @@ export class DoctorslotController {
     }
   }
 
+  @Version('1')
   @Get('/:id')
   async getDoctorslot(@Res() response, @Param('id') doctorslotID: string) {
     try {
@@ -90,17 +95,19 @@ export class DoctorslotController {
     }
   }
 
+  @Version('1')
   @Delete('/:id')
-  async deleteDoctorslot(@Res() response,@Param('id') doctorslotID:string){
+  async deleteDoctorslot(@Res() response, @Param('id') doctorslotID: string) {
     try {
-      const deletedDoctorslot = await this.doctorslotService.delectDoctorslot(doctorslotID);
+      const deletedDoctorslot = await this.doctorslotService.delectDoctorslot(
+        doctorslotID,
+      );
       return response.status(HttpStatus.OK).json({
         message: 'Doctorslot deleted successfully',
         deletedDoctorslot,
       });
-      
-    }catch (err){
-      return response.status(err.status).json(err.response)
+    } catch (err) {
+      return response.status(err.status).json(err.response);
     }
   }
 }

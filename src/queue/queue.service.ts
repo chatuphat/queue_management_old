@@ -36,4 +36,12 @@ export class QueueService {
     }
     return queueData;
   }
+
+  async getQueue(queueID: string): Promise<IQueue> {
+    const existingQueue = await this.queueModel.findById(queueID).exec();
+    if (!existingQueue) {
+      throw new NotFoundException(`Student #${queueID} not found`);
+    }
+    return existingQueue;
+  }
 }

@@ -67,4 +67,17 @@ export class QueueController {
       return response.status(err.status).json(err.response);
     }
   }
+
+  @Get('/:id')
+  async getQueue(@Res() response, @Param('id') queueID: string) {
+    try {
+      const existingQueue = await this.queueService.getQueue(queueID);
+      return response.status(HttpStatus.OK).json({
+        message: 'Queues found successfully',
+        existingQueue,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
 }

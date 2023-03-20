@@ -34,4 +34,24 @@ export class QueueController {
       });
     }
   }
+
+  @Put('/:id')
+  async updateQueue(
+    @Res() response,
+    @Param('id') queueID: string,
+    @Body() updateQueueDto: UpdateQueueDto,
+  ) {
+    try {
+      const existingQueue = await this.queueService.updateQueue(
+        queueID,
+        updateQueueDto,
+      );
+      return response.status(HttpStatus.OK).json({
+        message: 'Queue has been successfully updated',
+        existingQueue,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
 }

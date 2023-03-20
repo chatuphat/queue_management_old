@@ -13,4 +13,23 @@ export class QueueService {
     const newQueue = await new this.queueModel(createQueueDto);
     return newQueue.save();
   }
+
+  async updateQueue(
+    queueID: string,
+    updateQueueDto: UpdateQueueDto,
+  ): Promise<IQueue> {
+    const existingQueue = await this.queueModel.findByIdAndUpdate(
+      queueID,
+      updateQueueDto,
+      { new: true },
+    );
+    if (!existingQueue) {
+      throw new NotFoundException(`Student #${queueID} not found`);
+    }
+    return existingQueue;
+  }
+
+  
+
+
 }

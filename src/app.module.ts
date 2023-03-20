@@ -11,6 +11,9 @@ import { DoctorslotSchema } from './schema/doctorslot.schema';
 import { AppointmentSchema } from './schema/appointment.schema';
 import { AppointmentService } from './appointment/appointment.service';
 import { AppointmentController } from './appointment/appointment.controller';
+import { QueueSchema } from './schema/queue.schema';
+import { QueueService } from './queue/queue.service';
+import { QueueController } from './queue/queue.controller';
 
 @Module({
   imports: [
@@ -18,10 +21,23 @@ import { AppointmentController } from './appointment/appointment.controller';
     MongooseModule.forFeature([
       { name: 'Doctorprofile', schema: DoctorprofileSchema },
       { name: 'Doctorslot', schema: DoctorslotSchema },
-      { name : 'Appointment', schema: AppointmentSchema },
+      { name: 'Appointment', schema: AppointmentSchema },
+      { name: 'Queue', schema: QueueSchema },
     ]),
   ],
-  controllers: [AppController, DoctorprofileController, DoctorslotController, AppointmentController],
-  providers: [AppService, DoctorprofileService, DoctorslotService, AppointmentService],
+  controllers: [
+    AppController,
+    DoctorprofileController,
+    DoctorslotController,
+    AppointmentController,
+    QueueController,
+  ],
+  providers: [
+    AppService,
+    DoctorprofileService,
+    DoctorslotService,
+    AppointmentService,
+    QueueService,
+  ],
 })
 export class AppModule {}

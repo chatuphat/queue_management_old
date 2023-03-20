@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { CreateAppointmentDto } from 'src/dto/create-appointment.dto';
 import { UpdateAppointmentDto } from 'src/dto/update-appointment.dto';
-import { IAppointment } from '../interface/appointment.innterface';
+import { IAppointment } from '../interface/appointment.interface';
 import { Model } from 'mongoose';
 
 @Injectable()

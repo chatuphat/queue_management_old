@@ -8,6 +8,7 @@ import {
   Post,
   Put,
   Res,
+  Version,
 } from '@nestjs/common';
 import { response } from 'express';
 import { CreateDoctorprofileDto } from 'src/dto/create-doctorprofile.dto';
@@ -18,6 +19,7 @@ import { DoctorprofileService } from './doctorprofile.service';
 export class DoctorprofileController {
   constructor(private readonly doctorprofileService: DoctorprofileService) {}
 
+  @Version('1')
   @Post()
   async createDoctorprofile(
     @Res() response,
@@ -42,7 +44,7 @@ export class DoctorprofileController {
       });
     }
   }
-
+  @Version('1')
   @Put('/:id')
   async updateDoctorprofile(
     @Res() response,
@@ -63,7 +65,7 @@ export class DoctorprofileController {
       return response.status(err.status).json(err.response);
     }
   }
-
+  @Version('1')
   @Get()
   async getDoctorprofiles(@Res() response) {
     try {
@@ -78,6 +80,7 @@ export class DoctorprofileController {
     }
   }
 
+  @Version('1')
   @Get('/:id')
   async getDoctorprofile(
     @Res() response,
@@ -94,6 +97,7 @@ export class DoctorprofileController {
       return response.status(err.status).json(err.response);
     }
   }
+  @Version('1')
   @Delete('/:id')
   async deleteDoctorprofile(
     @Res() response,

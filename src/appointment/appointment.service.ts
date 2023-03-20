@@ -42,4 +42,12 @@ export class AppointmentService {
     }
     return appointmentData;
   }
+
+  async getAppointment(appointmentID:string): Promise <IAppointment>{
+    const existingAppointment = await this.appointmentModel.findById(appointmentID).exec();
+    if (!existingAppointment) {
+      throw new  NotFoundException(`Appointment #${appointmentID} not found`);
+    }
+    return existingAppointment;
+  }
 }

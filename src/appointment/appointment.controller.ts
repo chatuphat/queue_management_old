@@ -61,7 +61,7 @@ export class AppointmentController {
   }
     
   @Get()
-  async getAppointment(@Res() response) {
+  async getAppointments(@Res() response) {
     try {
       const appointmentData = await this.appointmentService.getAllAppointment();
       return response.status(HttpStatus.OK).json({
@@ -70,6 +70,19 @@ export class AppointmentController {
       });
     }catch(err) {
       return response.status(err.status).json(err.response);
+    }
+  }
+
+  @Get('/:id') 
+  async getAppointment(@Res() response,@Param('id') appointmentID:string){
+    try {
+      const existingAppointment = await this.appointmentService.getAppointment(appointmentID);
+      return response.status(HttpStatus.OK).json({
+        message: 'Appointment found successfully',
+                existingAppointment,
+      });
+    }catch (err) {
+      return response.status(err.status).json(err.response)
     }
   }
 

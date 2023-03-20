@@ -24,12 +24,16 @@ export class QueueService {
       { new: true },
     );
     if (!existingQueue) {
-      throw new NotFoundException(`Student #${queueID} not found`);
+      throw new NotFoundException(`Queue #${queueID} not found`);
     }
     return existingQueue;
   }
 
-  
-
-
+  async getAllQueue(): Promise<IQueue[]> {
+    const queueData = await this.queueModel.find();
+    if (!queueData || queueData.length == 0) {
+      throw new NotFoundException('Queue data not found!');
+    }
+    return queueData;
+  }
 }

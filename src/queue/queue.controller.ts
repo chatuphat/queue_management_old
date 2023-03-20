@@ -54,4 +54,17 @@ export class QueueController {
       return response.status(err.status).json(err.response);
     }
   }
+
+  @Get()
+  async getQueues(@Res() response) {
+    try {
+      const queueData = await this.queueService.getAllQueue();
+      return response.status(HttpStatus.OK).json({
+        message: 'All Queues data found successfully',
+        queueData,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
 }

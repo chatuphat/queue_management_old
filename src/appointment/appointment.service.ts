@@ -34,4 +34,12 @@ export class AppointmentService {
     }
     return existingAppointment;
   }
+
+  async getAllAppointment(): Promise<IAppointment[]> {
+    const appointmentData = await this.appointmentModel.find();
+    if (!appointmentData || appointmentData.length == 0) {
+      throw new NotFoundException('Appointment data nor found!');
+    }
+    return appointmentData;
+  }
 }

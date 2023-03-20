@@ -16,7 +16,7 @@ import { response } from 'express';
 
 @Controller('appointment')
 export class AppointmentController {
-  constructor(private readonly appointmnentService: AppointmentService) {}
+  constructor(private readonly appointmentService: AppointmentService) {}
 
   @Post()
   async createAppointment(
@@ -24,7 +24,7 @@ export class AppointmentController {
     @Body() createAppointmentDto: CreateAppointmentDto,
   ) {
     try {
-      const newAppointment = await this.appointmnentService.createAppointment(
+      const newAppointment = await this.appointmentService.createAppointment(
         createAppointmentDto,
       );
       return response.status(HttpStatus.CREATED).json({
@@ -44,10 +44,10 @@ export class AppointmentController {
     @Res() response,
     @Param('id') appointmentID: string,
     @Body() updateAppointmentDto: UpdateAppointmentDto,
-  ) {
+    ) {
     try {
       const existingAppointment =
-        await this.appointmnentService.updateAppointment(
+        await this.appointmentService.updateAppointment(
           appointmentID,
           updateAppointmentDto,
         );
@@ -59,4 +59,18 @@ export class AppointmentController {
       return response.status(err.status).json(err.response);
     }
   }
+    
+  @Get()
+  async getAppointment(@Res() response) {
+    try {
+      const appointmentData = await this.appointmentService.getAllAppointment();
+      return response.status(HttpStatus.OK).json({
+        message: 'All Appointment data found successfully',
+        appointmentData,
+      });
+    }catch(err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
+
 }

@@ -8,6 +8,9 @@ import { DoctorprofileSchema } from './schema/doctorprofile.schema';
 import { DoctorslotService } from './doctorslot/doctorslot.service';
 import { DoctorslotController } from './doctorslot/doctorslot.controller';
 import { DoctorslotSchema } from './schema/doctorslot.schema';
+import { AppointmentSchema } from './schema/appointment.schema';
+import { AppointmentService } from './appointment/appointment.service';
+import { AppointmentController } from './appointment/appointment.controller';
 
 @Module({
   imports: [
@@ -15,9 +18,10 @@ import { DoctorslotSchema } from './schema/doctorslot.schema';
     MongooseModule.forFeature([
       { name: 'Doctorprofile', schema: DoctorprofileSchema },
       { name: 'Doctorslot', schema: DoctorslotSchema },
+      { name : 'Appointment', schema: AppointmentSchema },
     ]),
   ],
-  controllers: [AppController, DoctorprofileController, DoctorslotController],
-  providers: [AppService, DoctorprofileService, DoctorslotService],
+  controllers: [AppController, DoctorprofileController, DoctorslotController, AppointmentController],
+  providers: [AppService, DoctorprofileService, DoctorslotService, AppointmentService],
 })
 export class AppModule {}

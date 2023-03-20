@@ -1,0 +1,37 @@
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { CreateAppointmentDto } from 'src/dto/create-appointment.dto';
+import { UpdateAppointmentDto } from 'src/dto/update-appointment.dto';
+import { IAppointment } from '../interface/appointment.innterface';
+import { Model } from 'mongoose';
+
+@Injectable()
+export class AppointmentService {
+  constructor(
+    @InjectModel('Appointment') private appointmentModel: Model<IAppointment>,
+  ) {}
+
+  async createAppointment(
+    createAppointmentDto: CreateAppointmentDto,
+  ): Promise<IAppointment> {
+    const newAppointment = await new this.appointmentModel(
+      createAppointmentDto,
+    );
+    return newAppointment.save();
+  }
+
+  async updateAppointment(
+    appointmentID: string,
+    updateAppointmentDto: UpdateAppointmentDto,
+  ): Promise<IAppointment> {
+    const existingAppointment = await this.appointmentModel.findByIdAndUpdate(
+      appointmentID,
+      updateAppointmentDto,
+      { new: true },
+    );
+    if (!existingAppointment) {
+      throw new NotFoundException(`Appointment #${appointmentID} not found`);
+    }
+    return existingAppointment;
+  }
+}

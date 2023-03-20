@@ -8,6 +8,7 @@ import {
   Post,
   Put,
   Res,
+  Version,
 } from '@nestjs/common';
 import { CreateAppointmentDto } from 'src/dto/create-appointment.dto';
 import { UpdateAppointmentDto } from 'src/dto/update-appointment.dto';
@@ -18,6 +19,7 @@ import { response } from 'express';
 export class AppointmentController {
   constructor(private readonly appointmentService: AppointmentService) {}
 
+  @Version('1')
   @Post()
   async createAppointment(
     @Res() response,
@@ -39,12 +41,14 @@ export class AppointmentController {
       });
     }
   }
+
+  @Version('1')
   @Put('/:id')
   async updateAppointment(
     @Res() response,
     @Param('id') appointmentID: string,
     @Body() updateAppointmentDto: UpdateAppointmentDto,
-    ) {
+  ) {
     try {
       const existingAppointment =
         await this.appointmentService.updateAppointment(
@@ -59,7 +63,8 @@ export class AppointmentController {
       return response.status(err.status).json(err.response);
     }
   }
-    
+
+  @Version('1')
   @Get()
   async getAppointments(@Res() response) {
     try {
@@ -68,35 +73,39 @@ export class AppointmentController {
         message: 'All Appointment data found successfully',
         appointmentData,
       });
-    }catch(err) {
+    } catch (err) {
       return response.status(err.status).json(err.response);
     }
   }
 
-  @Get('/:id') 
-  async getAppointment(@Res() response,@Param('id') appointmentID:string){
+  @Version('1')
+  @Get('/:id')
+  async getAppointment(@Res() response, @Param('id') appointmentID: string) {
     try {
-      const existingAppointment = await this.appointmentService.getAppointment(appointmentID);
+      const existingAppointment = await this.appointmentService.getAppointment(
+        appointmentID,
+      );
       return response.status(HttpStatus.OK).json({
         message: 'Appointment found successfully',
-                existingAppointment,
-      });
-    }catch (err) {
-      return response.status(err.status).json(err.response)
-    }
-  }
-
-  @Delete('/:id')
-  async deleteAppointment(@Res()response,@Param('id') appointmentID:string) {
-    try {
-      const deletedAppointment = await this.appointmentService.deleteAppointment(appointmentID);
-      return response.status(HttpStatus.OK).json({
-        message: 'Student deleted successfully',
-                deletedAppointment,
+        existingAppointment,
       });
     } catch (err) {
-      return response.status(err.status).json(err.response)
+      return response.status(err.status).json(err.response);
     }
   }
 
+  @Version('1')
+  @Delete('/:id')
+  async deleteAppointment(@Res() response, @Param('id') appointmentID: string) {
+    try {
+      const deletedAppointment =
+        await this.appointmentService.deleteAppointment(appointmentID);
+      return response.status(HttpStatus.OK).json({
+        message: 'Student deleted successfully',
+        deletedAppointment,
+      });
+    } catch (err) {
+      return response.status(err.status).json(err.response);
+    }
+  }
 }

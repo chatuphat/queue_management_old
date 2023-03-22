@@ -13,7 +13,7 @@ nest generate controller doctorprofile
 git status
 git add .
 git commit -m "first commit"
-git branch developer 
+git branch developer1 
 git checkout developer
 git branch 
 

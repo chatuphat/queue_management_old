@@ -29,8 +29,8 @@ export class QueueService {
     return existingQueue;
   }
 
-  async getAllQueue(): Promise<IQueue[]> {
-    const queueData = await this.queueModel.find();
+  async getAllQueue(queueQuery): Promise<IQueue[]> {
+    const queueData = await this.queueModel.find(queueQuery);
     if (!queueData || queueData.length == 0) {
       throw new NotFoundException('Queue data not found!');
     }
@@ -45,9 +45,9 @@ export class QueueService {
     return existingQueue;
   }
 
-  async deleteQueue(queueID:string): Promise<IQueue>{
+  async deleteQueue(queueID: string): Promise<IQueue> {
     const deletedQueue = await this.queueModel.findByIdAndDelete(queueID);
-    if(!deletedQueue){
+    if (!deletedQueue) {
       throw new NotFoundException(`Queue #${queueID} not found`);
     }
     return deletedQueue;

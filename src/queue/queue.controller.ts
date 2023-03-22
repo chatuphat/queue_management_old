@@ -9,6 +9,7 @@ import {
   Put,
   Res,
   Version,
+  Query,
 } from '@nestjs/common';
 import { CreateQueueDto } from 'src/dto/create-queue.dto';
 import { UpdateQueueDto } from 'src/dto/update-queue.dto';
@@ -60,9 +61,9 @@ export class QueueController {
 
   @Version('1')
   @Get()
-  async getQueues(@Res() response) {
+  async getQueues(@Res() response, @Query() qeueQuery) {
     try {
-      const queueData = await this.queueService.getAllQueue();
+      const queueData = await this.queueService.getAllQueue(qeueQuery);
       return response.status(HttpStatus.OK).json({
         message: 'All Queues data found successfully',
         queueData,

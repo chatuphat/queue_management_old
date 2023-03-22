@@ -9,6 +9,7 @@ import {
   Put,
   Res,
   Version,
+  Query,
 } from '@nestjs/common';
 import { CreateDoctorslotDto } from 'src/dto/create-doctorslot.dto';
 import { UpdateDoctorslotDto } from 'src/dto/update-doctorslot.dto';
@@ -67,9 +68,11 @@ export class DoctorslotController {
 
   @Version('1')
   @Get()
-  async getDoctorslots(@Res() response) {
+  async getDoctorslots(@Res() response, @Query() doctorslotQuery) {
     try {
-      const doctorslotDate = await this.doctorslotService.getAllDoctorslots();
+      const doctorslotDate = await this.doctorslotService.getAllDoctorslots(
+        doctorslotQuery,
+      );
       return response.status(HttpStatus.OK).json({
         message: 'All Doctorslot data found successfully',
         doctorslotDate,

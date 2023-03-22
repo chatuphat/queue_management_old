@@ -35,28 +35,31 @@ export class DoctorslotService {
     return existingDoctorslot;
   }
 
-  async getAllDoctorslots(): Promise<IDoctorslot[]> {
-    const doctorsotDate = await this.doctorslotModel.find();
+  async getAllDoctorslots(doctorslotQuery): Promise<IDoctorslot[]> {
+    const doctorsotDate = await this.doctorslotModel.find(doctorslotQuery);
     if (!doctorsotDate || doctorsotDate.length == 0) {
       throw new NotFoundException('Doctorslot data not found!');
     }
     return doctorsotDate;
   }
 
-  async getDoctorslot(doctorslotID:string):Promise<IDoctorslot>{
-    const existingDoctorslot = await this.doctorslotModel.findById(doctorslotID).exec();
-    if (!existingDoctorslot){
+  async getDoctorslot(doctorslotID: string): Promise<IDoctorslot> {
+    const existingDoctorslot = await this.doctorslotModel
+      .findById(doctorslotID)
+      .exec();
+    if (!existingDoctorslot) {
       throw new NotFoundException(`Doctorslot #${doctorslotID} not found`);
     }
     return existingDoctorslot;
   }
 
-  async delectDoctorslot(doctorslotID:string): Promise<IDoctorslot> {
-    const delectDoctorslot = await this.doctorslotModel.findByIdAndDelete(doctorslotID);
-    if (!delectDoctorslot){
+  async delectDoctorslot(doctorslotID: string): Promise<IDoctorslot> {
+    const delectDoctorslot = await this.doctorslotModel.findByIdAndDelete(
+      doctorslotID,
+    );
+    if (!delectDoctorslot) {
       throw new NotFoundException(`Doctorslot #${doctorslotID} not found`);
     }
-    return delectDoctorslot
+    return delectDoctorslot;
   }
-
 }

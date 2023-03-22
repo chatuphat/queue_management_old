@@ -9,6 +9,7 @@ import {
   Put,
   Res,
   Version,
+  Query,
 } from '@nestjs/common';
 import { CreateAppointmentDto } from 'src/dto/create-appointment.dto';
 import { UpdateAppointmentDto } from 'src/dto/update-appointment.dto';
@@ -66,9 +67,11 @@ export class AppointmentController {
 
   @Version('1')
   @Get()
-  async getAppointments(@Res() response) {
+  async getAppointments(@Res() response, @Query() appointmentQuery) {
     try {
-      const appointmentData = await this.appointmentService.getAllAppointment();
+      const appointmentData = await this.appointmentService.getAllAppointment(
+        appointmentQuery,
+      );
       return response.status(HttpStatus.OK).json({
         message: 'All Appointment data found successfully',
         appointmentData,

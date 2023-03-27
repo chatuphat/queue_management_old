@@ -1,19 +1,14 @@
-# Specify the base image
-FROM node:14.18.1-alpine
+# Base image
+FROM node:16-alpine
 
-# Set the working directory
+# Create app directory
 WORKDIR /app
 
-# Copy the package.json and yarn.lock files to the container
-COPY package.json yarn.lock ./
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+COPY package*.json ./
 
-# Install dependencies
+# Install app dependencies
 RUN yarn install
 
-# Copy the rest of the project files to the container
+# Bundle app source
 COPY . .
-
-# Build the project
-RUN yarn build
-
-# Specify the command to run the project

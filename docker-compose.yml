@@ -25,11 +25,13 @@ services:
   app:
     build: ./frontend
     ports:
-      - "5173:5173"
+      - "8080:8080"
     volumes:
       - ./frontend:/app
       - /app/node_modules
-    command: yarn dev
+    command: yarn serve
+    depends_on:
+      - mongodb
 
 volumes:
   mongodb_data_container:

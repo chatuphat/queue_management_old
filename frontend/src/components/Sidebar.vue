@@ -251,8 +251,8 @@
 
         <router-link
           class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
-          :class="[$route.name === 'UIElements' ? activeClass : inactiveClass]"
-          to="/ui-elements"
+          :class="[$route.name === 'Doctorslot' ? activeClass : inactiveClass]"
+          to="/Doctorslot"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -273,7 +273,7 @@
             <rect x="9" y="3" width="6" height="4" rx="2" />
           </svg>
 
-          <span class="mx-4">Docker slot</span>
+          <span class="mx-4">Doctor Slot</span>
         </router-link>
       </nav>
     </div>

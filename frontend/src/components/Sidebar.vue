@@ -169,7 +169,7 @@
           <span class="mx-4">Cards</span>
         </router-link>
 
-        <router-link
+        <!-- <router-link
           class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
           :class="[$route.name === 'Modal' ? activeClass : inactiveClass]"
           to="/modal"
@@ -190,10 +190,9 @@
               d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z"
             />
           </svg>
-
           <span class="mx-4">Modal</span>
-        </router-link>
-        <router-link
+        </router-link> -->
+        <!-- <router-link
           class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
           :class="[$route.name === 'Chart' ? activeClass : inactiveClass]"
           to="/charts"
@@ -209,8 +208,9 @@
           </svg>
 
           <span class="mx-4">Charts</span>
-        </router-link>
-        <router-link
+        </router-link> -->
+        
+        <!-- <router-link
           class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
           :class="[$route.name === 'Blank' ? activeClass : inactiveClass]"
           to="/blank"
@@ -222,7 +222,8 @@
           </svg>
 
           <span class="mx-4">Blank</span>
-        </router-link>
+        </router-link> -->
+
         <!-- <p class="pl-4 text-xs my-2 font-semibold mb-4 text-gray-400">About</p>
         <a
           target="_blank"

@@ -146,7 +146,7 @@
 
           <span class="mx-4">Forms</span>
         </router-link>
-
+        <!-- 
         <router-link
           class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
           :class="[$route.name === 'Cards' ? activeClass : inactiveClass]"
@@ -167,7 +167,7 @@
           </svg>
 
           <span class="mx-4">Cards</span>
-        </router-link>
+        </router-link> -->
 
         <!-- <router-link
           class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
@@ -209,7 +209,7 @@
 
           <span class="mx-4">Charts</span>
         </router-link> -->
-        
+
         <!-- <router-link
           class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
           :class="[$route.name === 'Blank' ? activeClass : inactiveClass]"

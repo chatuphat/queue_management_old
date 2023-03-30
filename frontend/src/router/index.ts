@@ -10,6 +10,7 @@ import Card from "../views/CardView.vue";
 import Blank from "../views/BlankView.vue";
 import Doctorslot from "../views/DoctorslotView.vue";
 import Dashborddoctor from "../views/DashborddoctorView.vue";
+import Doctormanagement from "../views/DoctormanagementView.vue"
 import NotFound from "../views/NotFound.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -69,6 +70,13 @@ const routes: Array<RouteRecordRaw> = [
     name: "Dashborddoctor",
     component: Dashborddoctor,
   },
+
+  {
+    path: "/doctormanagement",
+    name: "Doctormanagement",
+    component : Doctormanagement,
+  }
+  ,
 
   { path: "/:pathMatch(.*)*", component: NotFound },
 ];

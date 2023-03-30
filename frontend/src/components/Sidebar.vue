@@ -254,7 +254,7 @@
           :class="[
             $route.name === 'Dashborddoctor' ? activeClass : inactiveClass,
           ]"
-          to="/Dashborddoctor"
+          to="/dashborddoctor"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -279,37 +279,10 @@
 
         <router-link
           class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
-          :class="[$route.name === 'Doctorslot' ? activeClass : inactiveClass]"
-          to="/Doctorslot"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-clipboard"
-            width="25"
-            height="25"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="#ffffff"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path
-              d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
-            />
-            <rect x="9" y="3" width="6" height="4" rx="2" />
-          </svg>
-
-          <span class="mx-4">Doctor Slot</span>
-        </router-link>
-
-        <router-link
-          class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
           :class="[
             $route.name === 'Doctormanagement' ? activeClass : inactiveClass,
           ]"
-          to="/Doctormanagement"
+          to="/doctormanagement"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -331,6 +304,33 @@
           </svg>
 
           <span class="mx-4">Doctor Management</span>
+        </router-link>
+
+        <router-link
+          class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
+          :class="[$route.name === 'Doctorslot' ? activeClass : inactiveClass]"
+          to="/doctorslot"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-clipboard"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="#ffffff"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+            />
+            <rect x="9" y="3" width="6" height="4" rx="2" />
+          </svg>
+
+          <span class="mx-4">Doctor Slot</span>
         </router-link>
       </nav>
     </div>

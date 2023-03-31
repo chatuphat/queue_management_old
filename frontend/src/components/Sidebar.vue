@@ -333,6 +333,37 @@
 
           <span class="mx-4">Doctor Slot</span>
         </router-link>
+
+        <router-link
+          class="flex items-center px-6 py-2 mt-4 duration-200 border-l-4"
+          :class="[$route.name === 'Appointment' ? activeClass : inactiveClass]"
+          to="/appointment"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-calendar-time"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#ffffff"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4"
+            />
+            <circle cx="18" cy="18" r="4" />
+            <path d="M15 3v4" />
+            <path d="M7 3v4" />
+            <path d="M3 11h16" />
+            <path d="M18 16.496v1.504l1 1" />
+          </svg>
+
+          <span class="mx-4">Appointment</span>
+        </router-link>
         <!-- ---------------------------------------------------------------------Heard ------------------------------------------------------------------------------>
         <p class="pl-4 my-2 text-xs font-semibold mb-4 text-gray-400">Other</p>
 

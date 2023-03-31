@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Breadcrumb -->
-    <Breadcrumb breadcrumb="Doctor Slot" />
+    <Breadcrumb breadcrumb="Doctorslot" />
     <Banner />
     <div class="mt-8">
       <div class="mt-4">
@@ -25,7 +25,7 @@
               >
               <div>
                 <select
-                  class="mt-1 block  text-sm w-full rounded-md border-black shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  class="mt-1 block text-sm w-full rounded-md border-black shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 >
                   <option>นพ. สมชาย ใจดี</option>
                   <option>พญ. สมหญิง ดีใจ</option>

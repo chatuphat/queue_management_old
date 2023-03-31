@@ -125,7 +125,7 @@
                           <polyline points="12 7 12 12 15 15" />
                         </svg>
                       </a>
-                      <a href="#" class="mx-2 px-2 rounded-md">
+                      <a href="/appointment" class="mx-2 px-2 rounded-md">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="icon icon-tabler icon-tabler-calendar-time"

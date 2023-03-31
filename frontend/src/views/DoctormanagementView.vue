@@ -194,7 +194,7 @@ interface User {
 }
 
 const testUser: User = {
-  name: "สมหมาย",
+  name: "นพ. สมหมาย",
   title: "Software Engineer",
   title2: "Web dev",
   status: "Active",

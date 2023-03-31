@@ -31,9 +31,7 @@
                 </th>
                 <th
                   class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
-                >
-                  ทํารายการ
-                </th>
+                ></th>
               </tr>
             </thead>
 
@@ -90,12 +88,31 @@
                 >
                   <div class="flex justify-around">
                     <span class="text-yellow-500 flex justify-center">
-                      <a href="https://tablericons.com/" class="mx-2 px-2 rounded-md">
+                      <a href="/dashborddoctor" class="mx-2 px-2 rounded-md">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-dashboard"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="#000000"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <circle cx="12" cy="13" r="2" />
+                          <line x1="13.45" y1="11.55" x2="15.5" y2="9.5" />
+                          <path d="M6.4 20a9 9 0 1 1 11.2 0z" />
+                        </svg>
+                      </a>
+                      <a href="/doctorslot" class="mx-2 px-2 rounded-md">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="icon icon-tabler icon-tabler-clock"
-                          width="32"
-                          height="32"
+                          width="20"
+                          height="20"
                           viewBox="0 0 24 24"
                           stroke-width="1.5"
                           stroke="#000000"
@@ -106,6 +123,50 @@
                           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                           <circle cx="12" cy="12" r="9" />
                           <polyline points="12 7 12 12 15 15" />
+                        </svg>
+                      </a>
+                      <a href="#" class="mx-2 px-2 rounded-md">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-calendar-time"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="#000000"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path
+                            d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4"
+                          />
+                          <circle cx="18" cy="18" r="4" />
+                          <path d="M15 3v4" />
+                          <path d="M7 3v4" />
+                          <path d="M3 11h16" />
+                          <path d="M18 16.496v1.504l1 1" />
+                        </svg>
+                      </a>
+                      <a href="#" class="mx-2 px-2 rounded-md">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-walk"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="#000000"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <circle cx="13" cy="4" r="1" />
+                          <line x1="7" y1="21" x2="10" y2="17" />
+                          <path d="M16 21l-2 -4l-3 -3l1 -6" />
+                          <path d="M6 12l2 -3l4 -1l3 3l3 1" />
                         </svg>
                       </a>
                     </span>

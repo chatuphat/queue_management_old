@@ -2,7 +2,7 @@
   <nav class="text-sm font-semibold mb-6" aria-label="Breadcrumb">
     <ol class="list-none p-0 inline-flex">
       <li class="flex items-center text-purple">
-        <a href="/dashboard" class="text-gray-500">Dashboard</a>
+        <a href="/doctormanagement" class="text-gray-500">DOCTOR MANAGEMENT</a>
         <svg
           class="fill-current w-3 h-3 mx-3 text-blue-600"
           xmlns="http://www.w3.org/2000/svg"

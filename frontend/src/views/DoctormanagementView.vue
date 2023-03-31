@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Breadcrumb -->
-    <Breadcrumb breadcrumb="Doctormanagement" />
+    <Breadcrumb breadcrumb="" />
     <Banner />
 
     <div class="mt-8"></div>

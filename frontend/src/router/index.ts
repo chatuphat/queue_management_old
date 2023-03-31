@@ -11,7 +11,8 @@ import Blank from "../views/BlankView.vue";
 import Doctorslot from "../views/DoctorslotView.vue";
 import Dashborddoctor from "../views/DashborddoctorView.vue";
 import Doctormanagement from "../views/DoctormanagementView.vue";
-import Appointment from "../views/AppointmentView.vue"
+import Appointment from "../views/AppointmentView.vue";
+import Appointmentadd from "../views/AppointmentaddView.vue"
 import Version from "../views/VersionView.vue";
 import NotFound from "../views/NotFound.vue";
 
@@ -87,6 +88,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/appointment",
     name: "Appointment",
     component : Appointment
+  },
+  {
+    path: "/appointmentadd",
+    name: "Appointmentadd",
+    component: Appointmentadd
   },
 
   { path: "/:pathMatch(.*)*", component: NotFound },

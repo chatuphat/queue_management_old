@@ -16,11 +16,11 @@
           >
         </div>
       </div>
-      <!-- -------------------------------------------------------------HEARD --------------------------------->
-      <div class="max-w-sm mt-6 overflow-hidden bg-white rounded shadow-lg">
+<!-- -------------------------------------------------------------HEARD --------------------------------->
+       <div class="max-w-sm mt-6 overflow-hidden bg-white rounded shadow-lg">
         <div class="px-6 py-4">
           <div class="mb-2 text-xl font-bold text-gray-900">Version 1.0.0</div>
-          <p class="text-base text-gray-700">เเก้ไขส่วน Doctor Management</p>
+          <p class="text-base text-gray-700">เเก้ไขส่วน Doctor </p>
         </div>
         <div class="px-6 pt-4 pb-2">
           <span
@@ -29,6 +29,7 @@
           >
         </div>
       </div>
+
     </div>
   </div>
 </template>

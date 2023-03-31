@@ -31,7 +31,20 @@
   </div>
 </template> -->
 
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 import { ref } from "vue";
 const open = ref(true);
+</script> -->
+
+<script lang="ts">
+import { defineComponent } from "vue";
+// import { ref } from "vue";
+
+export default defineComponent({
+  name: "PageFooter", // Renamed component to multi-word name
+  // const open = ref(true);
+  setup() {
+    return {};
+  },
+});
 </script>

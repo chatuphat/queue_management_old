@@ -35,10 +35,8 @@
                 >HN Number</label
               >
               <input
-                class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="username"
+                class="mt-1 block text-sm w-full rounded-md border-black shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 type="text"
-                placeholder=""
               />
             </div>
           </div>

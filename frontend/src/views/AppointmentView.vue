@@ -251,7 +251,6 @@
 
   <script setup lang="ts">
 import { ref } from "vue";
-import Banner from "../partials/Banner.vue";
 import Breadcrumb from "../partials/Breadcrumb.vue";
 interface User {
   name: string;

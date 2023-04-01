@@ -4,7 +4,6 @@
       <Breadcrumbappointment breadcrumb="appointment add" />
   </template>
   <script lang="ts" setup>
-  import Breadcrumb from '../partials/Breadcrumb.vue'
   import Breadcrumbappointment from '../partials/Breadcrumbappointment.vue'
   </script>
   
